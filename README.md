@@ -4,12 +4,12 @@ Export apps from Splunk Cloud Victoria Experience using the Admin Config Service
 
 ## Features
 
-✅ **Export single apps or all apps**  
-✅ **Directory selection**: local/, default/, users/  
-✅ **Local-only exports** (custom configurations only)  
-✅ **Environment variable authentication**  
-✅ **Bulk operations with progress tracking**  
-✅ **Automatic Splunkbase app filtering**  
+✅ **Export single apps or all apps**
+✅ **Directory selection**: local/, default/, users/
+✅ **Local-only exports** (custom configurations only)
+✅ **Environment variable authentication**
+✅ **Bulk operations with progress tracking**
+✅ **Automatic Splunkbase app filtering**
 
 ## Quick Start
 
@@ -35,7 +35,7 @@ python3 export_splunk_app.py --help
 
 ### Core Options
 - `--stack STACK` - Your Splunk Cloud stack name (required)
-- `--token TOKEN` - JWT token (or set SPLUNK_ACS_TOKEN env var)  
+- `--token TOKEN` - JWT token (or set SPLUNK_ACS_TOKEN env var)
 - `--app APP` - Single app name to export
 - `--output-dir DIR` - Output directory (default: current directory)
 
@@ -62,7 +62,7 @@ python3 export_splunk_app.py --stack gw --export-all --local-only --output-dir .
 
 **Benefits:**
 - ✅ Faster downloads (smaller files)
-- ✅ Only your customizations  
+- ✅ Only your customizations
 - ✅ Perfect for configuration backup
 - ✅ Excludes Splunkbase apps automatically
 
@@ -104,40 +104,11 @@ python3 export_splunk_app.py --stack gw --app my_custom_app --local-only --outpu
 python3 export_splunk_app.py --stack gw --export-all --local-only --output-dir ./backup_$(date +%Y%m%d)
 ```
 
-## Authentication Options
-
-### Option 1: Environment Variable (Recommended)
-```bash
-export SPLUNK_ACS_TOKEN="your-jwt-token"
-python3 export_splunk_app.py --stack gw --export-all --local-only
-```
-
-### Option 2: Command Line
-```bash
-python3 export_splunk_app.py --stack gw --token "your-token" --export-all --local-only
-```
-
-### Option 3: Interactive Prompt
-```bash
-# Will prompt for token if not set
-python3 export_splunk_app.py --stack gw --export-all --local-only
-```
-
-## File Size Examples
-
-From our test with stack "gw":
-
-| Export Type | Example App | File Size | Use Case |
-|-------------|-------------|-----------|----------|
-| **Local-only** | AAA_search | 15.1 MB | Configuration backup |
-| **Full app** | AAA_search | 19.5 MB | Complete backup |
-| **Bulk local-only** | 21 apps | 146 MB total | All custom configs |
-
 ## Output
 
 The script downloads `.spl` files (standard Splunk app packages) that can be:
 - ✅ Installed on other Splunk instances
-- ✅ Unpacked with `tar -xzf app.spl`  
+- ✅ Unpacked with `tar -xzf app.spl`
 - ✅ Validated with `splunk-appinspect`
 - ✅ Version controlled
 
@@ -145,7 +116,7 @@ The script downloads `.spl` files (standard Splunk app packages) that can be:
 
 The script handles common issues:
 - ✅ **Invalid tokens** - Clear error messages
-- ✅ **Missing apps** - Skips and continues  
+- ✅ **Missing apps** - Skips and continues
 - ✅ **Network issues** - Retry suggestions
 - ✅ **Bulk failures** - Summary at end
 
@@ -157,7 +128,7 @@ Some apps may fail export due to:
 ## Security Notes
 
 - 🔒 **Never commit tokens to version control**
-- 🔄 **Rotate JWT tokens regularly**  
+- 🔄 **Rotate JWT tokens regularly**
 - 🎯 **Use least-privilege tokens** (only required ACS permissions)
 - 📁 **Store exports securely** (they contain your configurations)
 
@@ -171,7 +142,7 @@ Some apps may fail export due to:
 ## Creating JWT Tokens
 
 1. Log in to your Splunk Cloud deployment
-2. Go to **Settings > Tokens**  
+2. Go to **Settings > Tokens**
 3. Create new token with **ACS** permissions
 4. Copy the token value
 5. Set as `SPLUNK_ACS_TOKEN` environment variable
@@ -181,7 +152,7 @@ Some apps may fail export due to:
 ### "operation only supported for splunk stack on Classic Experience"
 - ✅ **Fixed in this version** - Uses correct Victoria Experience endpoints
 
-### "Authentication failed: Invalid or expired JWT token"  
+### "Authentication failed: Invalid or expired JWT token"
 - 🔄 Create a new token in Splunk Cloud
 - ✅ Verify token has ACS permissions
 
