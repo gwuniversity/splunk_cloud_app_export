@@ -51,9 +51,9 @@ python3 export_splunk_app.py --help
 
 ## Common Use Cases
 
-### 1. Backup All Custom Configurations (Recommended)
+### 1. Backup All Custom Configurations
 
-Export just the `local/` directories from all apps - this contains your custom configurations without the bloat of default files:
+Export just the `local/` directories from all apps - this contains your custom configurations:
 
 ```bash
 export SPLUNK_ACS_TOKEN="your-token"
@@ -89,7 +89,7 @@ python3 export_splunk_app.py --stack gw --app AAA_search --local-only
 python3 export_splunk_app.py --stack gw --app AAA_search
 ```
 
-### 4. Migration/Development Workflow
+### 4. Workflow
 
 ```bash
 export SPLUNK_ACS_TOKEN="your-token"
@@ -106,11 +106,7 @@ python3 export_splunk_app.py --stack gw --export-all --local-only --output-dir .
 
 ## Output
 
-The script downloads `.spl` files (standard Splunk app packages) that can be:
-- - Installed on other Splunk instances
-- - Unpacked with `tar -xzf app.spl`
-- - Validated with `splunk-appinspect`
-- - Version controlled
+The script downloads `.spl` files (standard Splunk app packages) that can be unpacked with `tar -xzf app.spl`
 
 ## Error Handling
 
