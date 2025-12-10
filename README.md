@@ -4,12 +4,12 @@ Export apps from Splunk Cloud Victoria Experience using the Admin Config Service
 
 ## Features
 
-✅ **Export single apps or all apps**
-✅ **Directory selection**: local/, default/, users/
-✅ **Local-only exports** (custom configurations only)
-✅ **Environment variable authentication**
-✅ **Bulk operations with progress tracking**
-✅ **Automatic Splunkbase app filtering**
+- **Export single apps or all apps**
+- **Directory selection**: local/, default/, users/
+- **Local-only exports** (custom configurations only)
+- **Environment variable authentication**
+- **Bulk operations with progress tracking**
+- **Automatic Splunkbase app filtering**
 
 ## Quick Start
 
@@ -61,10 +61,10 @@ python3 export_splunk_app.py --stack gw --export-all --local-only --output-dir .
 ```
 
 **Benefits:**
-- ✅ Faster downloads (smaller files)
-- ✅ Only your customizations
-- ✅ Perfect for configuration backup
-- ✅ Excludes Splunkbase apps automatically
+- - Faster downloads (smaller files)
+- - Only your customizations
+- - Perfect for configuration backup
+- - Excludes Splunkbase apps automatically
 
 ### 2. Full App Backup
 
@@ -107,18 +107,18 @@ python3 export_splunk_app.py --stack gw --export-all --local-only --output-dir .
 ## Output
 
 The script downloads `.spl` files (standard Splunk app packages) that can be:
-- ✅ Installed on other Splunk instances
-- ✅ Unpacked with `tar -xzf app.spl`
-- ✅ Validated with `splunk-appinspect`
-- ✅ Version controlled
+- - Installed on other Splunk instances
+- - Unpacked with `tar -xzf app.spl`
+- - Validated with `splunk-appinspect`
+- - Version controlled
 
 ## Error Handling
 
 The script handles common issues:
-- ✅ **Invalid tokens** - Clear error messages
-- ✅ **Missing apps** - Skips and continues
-- ✅ **Network issues** - Retry suggestions
-- ✅ **Bulk failures** - Summary at end
+- **Invalid tokens** - Clear error messages
+- **Missing apps** - Skips and continues
+- **Network issues** - Retry suggestions
+- **Bulk failures** - Summary at end
 
 Some apps may fail export due to:
 - Empty local/ directories (when using --local-only)
