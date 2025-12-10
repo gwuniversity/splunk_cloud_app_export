@@ -125,13 +125,6 @@ Some apps may fail export due to:
 - Permission restrictions
 - App-specific limitations
 
-## Security Notes
-
-- 🔒 **Never commit tokens to version control**
-- 🔄 **Rotate JWT tokens regularly**
-- 🎯 **Use least-privilege tokens** (only required ACS permissions)
-- 📁 **Store exports securely** (they contain your configurations)
-
 ## Requirements
 
 - Python 3.6+
@@ -139,27 +132,4 @@ Some apps may fail export due to:
 - Valid Splunk Cloud Victoria Experience deployment
 - JWT token with ACS app export permissions
 
-## Creating JWT Tokens
 
-1. Log in to your Splunk Cloud deployment
-2. Go to **Settings > Tokens**
-3. Create new token with **ACS** permissions
-4. Copy the token value
-5. Set as `SPLUNK_ACS_TOKEN` environment variable
-
-## Troubleshooting
-
-### "operation only supported for splunk stack on Classic Experience"
-- ✅ **Fixed in this version** - Uses correct Victoria Experience endpoints
-
-### "Authentication failed: Invalid or expired JWT token"
-- 🔄 Create a new token in Splunk Cloud
-- ✅ Verify token has ACS permissions
-
-### Apps failing to export with 400 errors
-- ℹ️ Normal for apps with empty local/ directories when using `--local-only`
-- ✅ Check export summary for successful vs failed apps
-
----
-
-**Happy Splunking!** 🚀
